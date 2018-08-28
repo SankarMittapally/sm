@@ -3,7 +3,7 @@ pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
-		def branch = env.BRANCH_NAME
+		def branch = "env.BRANCH_NAME"
                 }  
     agent any
     stages {

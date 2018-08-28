@@ -6,7 +6,6 @@ pipeline {
 		def branch = "env.BRANCH_NAME"
                 }  
     agent any
-    stages {
          if (env.BRANCH_NAME == 'master') { 
          stage ('master') {
                 echo "Master Branch"
@@ -25,5 +24,4 @@ pipeline {
 //		sh "${mvnCMD} clean compile"
 //		}
 //	}
-     }
 }

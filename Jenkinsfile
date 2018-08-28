@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'

@@ -7,7 +7,6 @@ pipeline{
 	           git 'https://github.com/SankarMittapally/sm.git'
 		        }
 			}
-		}
 	stage('Mvn Package'){
 	    steps{
 	        def mvnHome=tool name: 'ApacheMaven', type: 'maven'
@@ -15,4 +14,5 @@ pipeline{
 		    sh "${mvnCMD} clean compile"
 			}
 	}
+}
 }

@@ -3,10 +3,9 @@ pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
-		def branch = env.BRANCH_NAME
+		def branch = "env.BRANCH_NAME"
                 }  
     agent any
-    stages {
          if (env.BRANCH_NAME == 'master') { 
          stage ('master') {
                 echo "Master Branch"
@@ -25,5 +24,4 @@ pipeline {
 //		sh "${mvnCMD} clean compile"
 //		}
 //	}
-     }
 }

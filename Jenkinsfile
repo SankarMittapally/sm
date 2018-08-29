@@ -6,14 +6,14 @@ pipeline {
 		def branch = "env.BRANCH_NAME"
                 }  
     agent any
-         if (env.BRANCH_NAME == 'master') { 
-         stage ('master') {
-                echo "Master Branch"
-               }
-         stage ('sm1') {
-                echo "SM1 Branch"
-               }
-         }
+//         if (env.BRANCH_NAME == 'master') { 
+//         stage ('master') {
+//                echo "Master Branch"
+//               }
+//         stage ('sm1') {
+//                echo "SM1 Branch"
+//               }
+//         }
 //         stage ('SCM CheckOut') {
 //             steps {  
 //                 git 'https://github.com/SankarMittapally/sm.git'
@@ -23,5 +23,13 @@ pipeline {
 //	     steps {
 //		sh "${mvnCMD} clean compile"
 //		}
-//	}
+          stage ('SCM Checkout') { 
+                   steps {
+                       script {
+                            git 'https://github.com/SankarMittapally/sm.git'
+                            echo $branch
+                              }
+                          }
+                      
+	}
 }

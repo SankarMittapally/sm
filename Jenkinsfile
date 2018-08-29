@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 pipeline {
-    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], parameters([string(defaultValue: 'master', description: 'branch wise ', name: 'branch', trim: false)]), pipelineTriggers([])])
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
@@ -25,12 +24,15 @@ pipeline {
 //		}
           stages {
           stage ('SCM Checkout') { 
+                   when { 
+                        branch 'master'
+                        }
                    steps {
                        script {
-                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${params.branch}"
+                            git url: 'https://github.com/SankarMittapally/sm.git', branch: 'master'
                               }
                           }
-                      
+         
 	}
 }
 }

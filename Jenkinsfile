@@ -27,7 +27,6 @@ pipeline {
                    steps {
                        script {
                             git url: 'https://github.com/SankarMittapally/sm.git', branch: "${params.branch}"
-                            echo "$(params.branch}"
                               }
                           }
                       

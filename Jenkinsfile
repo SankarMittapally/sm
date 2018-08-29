@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], parameters([choice(choices: ['master', 'sm1', 'test', 'dev', 'uat'], description: 'Branch Wise Build', name: 'branch')]), pipelineTriggers([])])
+    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], parameters([string(defaultValue: 'master', description: 'branch wise ', name: 'branch', trim: false)]), pipelineTriggers([])])
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"

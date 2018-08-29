@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 pipeline {
+    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], parameters([choice(choices: ['master', 'sm1', 'test', 'dev', 'uat'], description: 'Branch Wise Build', name: 'branch')]), pipelineTriggers([])])
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
-		def branch = "env.BRANCH_NAME"
                 }  
     agent any
 //         if (env.BRANCH_NAME == 'master') { 
@@ -26,10 +26,11 @@ pipeline {
           stage ('SCM Checkout') { 
                    steps {
                        script {
-                            git 'https://github.com/SankarMittapally/sm.git'
-                            echo $branch
+                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${params.branch}"
+                            echo "$(params.branch}"
                               }
                           }
                       
 	}
 }
+

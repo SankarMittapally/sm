@@ -23,6 +23,7 @@ pipeline {
 //	     steps {
 //		sh "${mvnCMD} clean compile"
 //		}
+          stages {
           stage ('SCM Checkout') { 
                    steps {
                        script {
@@ -32,4 +33,4 @@ pipeline {
                       
 	}
 }
-
+}

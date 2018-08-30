@@ -11,7 +11,6 @@ pipeline {
           stage ('SCM Checkout') { 
                    steps {
                        script {
-                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${branch_build}"
                             echo "${branch_build}"
                               }
                           }

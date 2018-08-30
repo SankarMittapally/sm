@@ -28,6 +28,7 @@ pipeline {
                    steps {
                        script {
                             git url: 'https://github.com/SankarMittapally/sm.git', branch: "${env.branch}"
+                            sh "${mvnCMD} clean compile"
                               }
                           }
          

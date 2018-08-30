@@ -4,7 +4,6 @@ pipeline {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
                 }  
-    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], parameters([string(defaultValue: 'master', description: '', name: 'branch', trim: false)]), pipelineTriggers([])])
 
     agent any
 //         if (env.BRANCH_NAME == 'master') { 
@@ -31,7 +30,7 @@ pipeline {
                         }
                    steps {
                        script {
-                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${params.branch}"
+                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${env.branch}"
                               }
                           }
          

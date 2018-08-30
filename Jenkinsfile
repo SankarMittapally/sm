@@ -3,7 +3,7 @@ pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
-                def branch_build = 'echo "${env.branch}" |tr -d 'origin/''
+                def branch_build = 'echo "${env.branch}" |tr -d 'refs/remotes/origin/''
                 }  
 
     agent any

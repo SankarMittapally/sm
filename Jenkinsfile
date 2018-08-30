@@ -30,7 +30,6 @@ pipeline {
                        script {
                             git url: 'https://github.com/SankarMittapally/sm.git', branch: "${branch}"
                             echo "${branch}"
-                            sh "${mvnCMD} clean compile"
                               }
                           }
          

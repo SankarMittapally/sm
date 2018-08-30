@@ -3,15 +3,20 @@ pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
-                def branch_build = 'echo "${env.branch}" |tr -d 'refs/remotes/origin/''
-                }  
+                }
+    parameters {
+            string(
+                name: 'branch',
+                defaultValue:"master",
+                description: "Where to put the build!")
+    }  
 
     agent any
           stages {
           stage ('SCM Checkout') { 
                    steps {
                        script {
-                            echo "${branch_build}"
+                            echo "${branch}"
                               }
                           }
          

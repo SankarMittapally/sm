@@ -3,6 +3,7 @@ pipeline {
     environment {
                 def mvnHome = tool name: 'ApacheMaven', type: 'maven'
                 def mvnCMD = "${mvnHome}/bin/mvn"
+                def branch = 'echo "${env.branch" |tr -d 'origin/'
                 }  
 
     agent any
@@ -27,7 +28,7 @@ pipeline {
           stage ('SCM Checkout') { 
                    steps {
                        script {
-                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${env.branch}"
+                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${branch}"
                             sh "${mvnCMD} clean compile"
                               }
                           }

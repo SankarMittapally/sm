@@ -25,9 +25,6 @@ pipeline {
 //		}
           stages {
           stage ('SCM Checkout') { 
-                   when { 
-                        branch 'master'
-                        }
                    steps {
                        script {
                             git url: 'https://github.com/SankarMittapally/sm.git', branch: "${env.branch}"

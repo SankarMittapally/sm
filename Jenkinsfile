@@ -11,7 +11,12 @@ pipeline {
           stage ('SCM Checkout') { 
                    steps {
                        script {
+<<<<<<< HEAD
                             echo "${branch_build}"
+=======
+                            git url: 'https://github.com/SankarMittapally/sm.git', branch: "${branch}"
+                            sh "${mvnCMD} clean compile"
+>>>>>>> parent of ef8d9f3...  adding branch wise build
                               }
                           }
          
